@@ -1,0 +1,125 @@
+# =========================
+# PYTHON / FASTAPI BACKEND
+# =========================
+
+# Virtual environment
+venv/
+env/
+.venv/
+.env/
+RAG_env/
+.env
+
+# Bytecode & cache
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Logs
+*.log
+
+# Local config
+*.local
+*.ini
+*.cfg
+
+# SQLite DBs (if ever used locally)
+*.sqlite3
+*.db
+
+# Uploaded/temp files
+uploads/
+temp/
+
+# Tooling
+pip-wheel-metadata/
+pip-log.txt
+profile_default/
+ipython_config.py
+
+# =========================
+# NEXT.JS / FRONTEND
+# =========================
+
+# Node modules
+node_modules/
+
+# Build output
+.next/
+out/
+dist/
+build/
+
+# Debug
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Local env vars
+.env.local
+.env.development.local
+.env.production.local
+.env.test.local
+
+# Next.js config artifacts
+.next/
+.vercel/
+
+# =========================
+# SUPABASE
+# =========================
+
+# Supabase local config folder (never commit)
+supabase/.branches
+supabase/.temp
+supabase/.config
+supabase/.local
+supabase/docker
+supabase/volumes
+
+# Supabase env
+supabase/.env
+supabase/.env.local
+
+# =========================
+# OS JUNK FILES
+# =========================
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# Linux
+*~
+
+# =========================
+# IDE / EDITOR FILES
+# =========================
+
+# VSCode
+.vscode/
+.history/
+
+# JetBrains
+.idea/
+
+# =========================
+# MISC
+# =========================
+
+# Local dev secrets
+secrets.json
+
+# Python coverage
+htmlcov/
+.coverage
+.coverage.*
+
+# General cache
+.cache/

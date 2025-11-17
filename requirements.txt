@@ -1,0 +1,29 @@
+# Core backend
+fastapi
+uvicorn[standard]
+
+# RAG pipeline
+langchain
+langchain-community
+langchain-core
+
+# Embeddings
+sentence-transformers
+
+# Supabase client + pgvector support
+supabase
+pgvector
+
+# PDF / DOCX / Text extraction
+pypdf
+python-docx
+pdfplumber
+
+# Environment variables
+python-dotenv
+
+# Optional (recommended)
+tqdm
+numpy
+
+huggingface_hub
