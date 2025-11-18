@@ -19,7 +19,7 @@ REQUIRED_MODULES = [
 
     # File handling
     "pypdf",
-    "docx",
+    "docx",            # <-- FIXED
     "pdfplumber",
 
     # Utils
@@ -27,9 +27,9 @@ REQUIRED_MODULES = [
     "tqdm",
     "numpy",
 
-    # Optional (comment out if not using)
-    "openai",
-    "huggingface_hub",
+    # Optional
+    # "openai",           # remove if not using
+    # "huggingface_hub",
 ]
 
 def check_modules():
@@ -40,7 +40,6 @@ def check_modules():
             print(f"✅ {module} — OK")
         except ImportError:
             print(f"❌ {module} — MISSING")
-
     print("\nCheck complete.\n")
 
 if __name__ == "__main__":
