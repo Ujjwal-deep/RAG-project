@@ -6,7 +6,7 @@ FastAPI entrypoint for the RAG backend.
 - Loads .env automatically.
 - Exposes two endpoints:
   1) POST /upload  -> accepts file (multipart) + document_id form field, calls process_document()
-  2) POST /query   -> accepts JSON {"question": "...", "top_k": 5}, calls answer_query()
+  2) POST /query   -> accepts JSON {"question": "...", "top_k": 2}, calls answer_query()
 
 This is host-ready: uses async endpoints, simple JSON responses, and CORS enabled for local frontend development.
 """
@@ -49,7 +49,13 @@ app.add_middleware(
 
 class QueryPayload(BaseModel):
     question: str
-    top_k: int = 5
+    top_k: int = 2
+    
+    def __init__(self, **data):
+        super().__init__(**data)
+        # Cap top_k at maximum of 3
+        if self.top_k > 3:
+            self.top_k = 3
 
 
 @app.post("/upload")
@@ -75,11 +81,13 @@ async def query(payload: QueryPayload):
     """
     Query endpoint:
     - payload.question: text question
-    - payload.top_k: number of contexts to return
+    - payload.top_k: number of contexts to return (default: 2, max: 3)
     Returns: {"answer": str, "sources": [...]}
     """
     try:
-        answer, sources = await answer_query(payload.question, top_k=payload.top_k)
+        # Ensure top_k is capped at 3 (also validated in pipeline, but enforce here too)
+        top_k = min(payload.top_k, 3)
+        answer, sources = await answer_query(payload.question, top_k=top_k)
         return {"answer": answer, "sources": sources}
     except Exception as e:
         logger.exception("Error in /query")

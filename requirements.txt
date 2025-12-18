@@ -26,4 +26,5 @@ python-dotenv
 tqdm
 numpy
 
-huggingface_hub
+# AWS Bedrock
+boto3
